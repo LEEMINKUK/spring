@@ -51,4 +51,59 @@ public class ProductService {
 
         return result > 0? true : false;
     }
+
+    public boolean modifyAll(ProductDTO productList) {
+        SqlSession sqlSession = getSqlSession();
+
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+
+        int result = productMapper.modifyAll(productList);
+
+        if(result >0){
+            sqlSession.commit();
+        }else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+
+    }
+
+    public boolean modifyAllRental(RentalDTO rentalList) {
+        SqlSession sqlSession = getSqlSession();
+
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+
+        int result = productMapper.modifyAllRental(rentalList);
+
+        if(result >0){
+            sqlSession.commit();
+        }else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+    }
+
+    public boolean delete(ProductAndRentalDTO productList) {
+        SqlSession sqlSession = getSqlSession();
+
+        ProductMapper productMapper = sqlSession.getMapper(ProductMapper.class);
+
+        int result = productMapper.delete(productList);
+
+        if(result >0){
+            sqlSession.commit();
+        }else {
+            sqlSession.rollback();
+        }
+
+        sqlSession.close();
+
+        return result > 0? true : false;
+    }
 }

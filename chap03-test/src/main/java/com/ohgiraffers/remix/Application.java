@@ -52,12 +52,15 @@ public class Application {
 
     private static Map<String, String> inputMenu() {
         Scanner sc = new Scanner(System.in);
+        System.out.print("변경 하시고 싶은 제품 번호 (ID)를 입력해 주세요 :");
+        String id = sc.nextLine();
         System.out.print("변경하실 가격을 입력해 주세요 : ");
         String price = sc.nextLine();
         System.out.print("대여 상태 변경 ex) Y / N : ");
         String rental = sc.nextLine();
 
         Map<String,String> parameter = new HashMap<>();
+        parameter.put("id",id);
         parameter.put("price", price);
         parameter.put("rental", rental);
 
@@ -65,9 +68,34 @@ public class Application {
         return parameter;
     }
 
-    private static Map<Integer,String> inputModifyMenu() {
+    private static Map<String,String> inputModifyMenu() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("추가 하실 제품 번호 (ID)를 입력해 주세요 :");
+        String id = sc.nextLine();
+        System.out.print("가격을 입력해 주세요 : ");
+        String price = sc.nextLine();
+        System.out.print("대여 가능 여부 ex) Y / N : ");
+        String rental = sc.nextLine();
+        System.out.print("모델명을 입력해 주세요 : ");
+        String model = sc.nextLine();
+        System.out.print("RAM 용량을 설정해 주세요 : ");
+        String ram = sc.nextLine();
+        System.out.print("SSD 용량을 설정해 주세요 : ");
+        String ssd = sc.nextLine();
+        System.out.print("BRAND 를 적어주세요 : ");
+        String brand = sc.nextLine();
 
-        return null;
+        Map<String,String> parameter = new HashMap<>();
+        parameter.put("id",id);
+        parameter.put("price", price);
+        parameter.put("rental", rental);
+        parameter.put("model",model);
+        parameter.put("ram",ram);
+        parameter.put("ssd",ssd);
+        parameter.put("brand",brand);
+
+
+        return parameter;
     }
 
 

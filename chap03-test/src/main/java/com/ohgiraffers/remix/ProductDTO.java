@@ -2,7 +2,7 @@ package com.ohgiraffers.remix;
 
 import java.util.Date;
 
-public class ProductDTO {
+public class ProductDTO{
 
     private int id;
     private String model;

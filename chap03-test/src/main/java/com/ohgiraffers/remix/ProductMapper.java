@@ -10,4 +10,9 @@ public interface ProductMapper {
 
     int registRental(RentalDTO rentalList);
 
+    int modifyAll(ProductDTO productList);
+
+    int modifyAllRental(RentalDTO rentalList);
+
+    int delete(ProductAndRentalDTO productList);
 }

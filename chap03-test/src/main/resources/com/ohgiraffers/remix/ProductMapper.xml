@@ -51,19 +51,55 @@
             WHERE A.ID = #{id}
     </select>
 
-    <insert id="registRental" parameterType="com.ohgiraffers.remix.RentalDTO">
-        INSERT
-            INTO PRODUCT
-            (
-              ID
-            , PRICE
-            , RENTAL
-            )
-            VALUES
-            (
-              #{id}
-            , #{price}
-            , #{rental}
-            )
+    <update id="registRental" parameterType="com.ohgiraffers.remix.ProductAndRentalDTO">
+        UPDATE RENTAL
+            SET   ID = #{id}
+                , PRICE = #{price}
+                , RENTAL = #{rental}
+        WHERE ID = #{id}
+    </update>
+
+    <insert id="modifyAll" parameterType="com.ohgiraffers.remix.ProductDTO">
+        INSERT INTO PRODUCT
+        (
+        ID
+        ,MODEL
+        ,RAM
+        ,SSD
+        ,BRAND
+        ,PRODUCT_DATE
+        )
+        values
+        (
+        #{id}
+        ,#{model}
+        ,#{ram}
+        ,#{ssd}
+        ,#{brand}
+        ,'2024-01-01'
+        )
     </insert>
+
+    <insert id="modifyAllRental" parameterType="com.ohgiraffers.remix.RentalDTO">
+        INSERT INTO RENTAL
+        (
+            ID
+            ,PRICE
+            ,RENTAL
+        )
+        VALUES
+        (
+            #{id}
+            ,#{price}
+            ,#{rental}
+        )
+    </insert>
+
+    <delete id="delete" parameterType="com.ohgiraffers.remix.ProductAndRentalDTO">
+        DELETE A,B
+        FROM PRODUCT A
+        INNER JOIN RENTAL B
+        WHERE B.ID = #{id}
+        AND A.ID=#{id};
+    </delete>
 </mapper>
