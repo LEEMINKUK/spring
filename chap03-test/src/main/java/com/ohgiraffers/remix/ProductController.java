@@ -72,6 +72,7 @@ public class ProductController {
         productList.setModel(model);
         productList.setRam(ram);
         productList.setSsd(ssd);
+
         if (productService.modifyAll(productList)){
             printResult.printModifyAllMessage("insert");
         }else {
